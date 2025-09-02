@@ -1,2 +1,8 @@
 faculty_1 faculty5632 ICE 103 19
+faculty_2 faculty5632 MAT 101 4
+faculty_3 faculty5632 ENG 101 39
+faculty_4 faculty5632 MAT 101 31
+faculty_5 faculty5632 ENG 101 5
+faculty_6 faculty5632 CSE 103 19
+  
 

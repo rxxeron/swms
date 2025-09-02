@@ -1,17 +1,16 @@
 #include "common.h"
 
-void clrscrn(){         // Clears terminal after menu switch
+void clrscrn(){
     system(clrcmd);
 }
-void paucon() {         // Pause after function finish work
+void paucon() {
     printf("\nPress Enter to continue...");
     while(getchar()!='\n');
     getchar();
     clrscrn();
 }
 
-// Student Function
-void regstd() {                                            // Student Registration
+void regstd() {
     clrscrn();
     FILE *file = fopen(stdfile, "a");
     if(!file){ printf("Error! Contact admin.\n"); return; }
@@ -24,7 +23,7 @@ void regstd() {                                            // Student Registrati
     scanf("%29s", s.std_id);
 
     
-    {                                       // Check if ID already exists
+    {
         FILE *check = fopen(stdfile, "r");
         if(check) {
             char id[30], pass[30], course[50], sec[10];
@@ -67,7 +66,7 @@ void regstd() {                                            // Student Registrati
     paucon();
 }
 
-int logstd(char std_id[]) {                               // Student Login
+int logstd(char std_id[]) {
     clrscrn();
     FILE *file = fopen(stdfile,"r");
     if(!file){ printf("No registered students.\n"); return 0; }
@@ -87,7 +86,7 @@ int logstd(char std_id[]) {                               // Student Login
     if(!success) printf("Login failed! Check ID and password.\n");
     return success;
 }
-int spfm() {                                             // Student post menu function
+int spfm() {
     int choice;
     while(1) {
         printf("\n1. Back to Student Menu\n2. Logout\nChoice: ");
@@ -97,7 +96,7 @@ int spfm() {                                             // Student post menu fu
         printf("Invalid choice!\n");
     }
 }
-int ame(char std_id[]) {                                // Student mood entry
+int ame(char std_id[]) {
     clrscrn();
     FILE *file = fopen(moodentryfile,"a");
     if(!file){ printf("Error! Contact admin.\n"); return 1; }
@@ -135,7 +134,7 @@ int ame(char std_id[]) {                                // Student mood entry
 
     return spfm();
 }
-int view_report(char std_id[]) {                       // View student report
+int view_report(char std_id[]) {
     clrscrn();
     FILE *file = fopen(moodentryfile,"r");
     if(!file){ printf("No mood entries found.\n"); return spfm(); }
@@ -181,7 +180,7 @@ int view_report(char std_id[]) {                       // View student report
 
     return spfm();
 }
-void sba(char student_id[]) {                         // Student books appointment
+void sba(char student_id[]) {
     clrscrn();
     char consultant[max_un], date[20], time[10];
 
@@ -209,7 +208,7 @@ void sba(char student_id[]) {                         // Student books appointme
     printf("Appointment request sent successfully!\n");
     return ;
 }
-int sva(char std_id[]) {                             // Student view appointments
+int sva(char std_id[]) {
     clrscrn();
     FILE *fp=fopen(apptfile,"r");
     if(!fp){ printf("No appointments found.\n"); return spfm(); }
@@ -255,7 +254,7 @@ int sva(char std_id[]) {                             // Student view appointment
     }
     return spfm();
 }
-int vrecomm(char std_id[]) {                        // Student view recommentdation
+int vrecomm(char std_id[]) {
     clrscrn();
     FILE *file = fopen(recommendfile, "r");
     if(!file){ printf("No recommendations found.\n"); return spfm(); }
@@ -294,9 +293,9 @@ int vrecomm(char std_id[]) {                        // Student view recommentdat
 
     return spfm();
 }
-void stdmenu(char student_id[]) {                  // Student Menu
+void stdmenu(char student_id[]) {
     int choice, pfm;
-    do {
+    while(1) {
         clrscrn();
         printf("\n\t\t\t\t --------------- Student Menu ---------------\n");
         printf("1. Enter Mood\n2. View Mood History\n3. View Recommendations\n4. Book Appointment with Consultant\n5. View My Appointments\n6. Logout\nChoice: ");
@@ -312,7 +311,7 @@ void stdmenu(char student_id[]) {                  // Student Menu
             default: printf("Invalid choice!\n"); pfm=1; break;
         }
 
-        if(pfm==0){ printf("Logging out...\n"); return; }
+        if(pfm==0){ printf("Logging out...\n"); clrscrn(); return; }
 
-    } while(1);
+    } ;
 }

@@ -1,19 +1,18 @@
 #include "common.h"
 
 
-int fpfm() {                                             // Faculty post menu function
+int fpfm() {
     int choice;
     while(1) {
         printf("\n1. Back to Faculty Menu\n2. Logout\nChoice: ");
         if(scanf("%d",&choice)!=1){ while(getchar()!='\n'); printf("Invalid input!\n"); continue; }
-        if(choice==1)  return 1; clrscrn(); // Back to menu
-        if(choice==2) return 0; clrscrn(); // Logout
+    if(choice==1)  return 1; clrscrn();
+    if(choice==2) return 0; clrscrn();
         printf("Invalid choice!\n");
     }
 }
 
-// Faculty functions
-int logfac(char id[], Teacher *t) {                          // Faculty login
+int logfac(char id[], Teacher *t) {
     clrscrn();
     FILE *file = fopen(teachfile, "r");
     if (!file) {
@@ -39,7 +38,7 @@ int logfac(char id[], Teacher *t) {                          // Faculty login
     }
     return 1;
 }
-int fvam(Teacher t){                                        // Faculty view average mood
+int fvam(Teacher t){
     clrscrn();
     FILE *fp = fopen(moodentryfile, "r");
     if(!fp){ printf("No mood entries found.\n"); return fpfm(); }
@@ -73,7 +72,7 @@ int fvam(Teacher t){                                        // Faculty view aver
     else printf("Average mood for %s (%s): %.2f\n", t.course, t.sec, (double)total_mood/count);
 return fpfm();
 }
-int facvulstd(Teacher t){                                  // Faculty view vulnerable students
+int facvulstd(Teacher t){
     clrscrn();
     FILE *fp = fopen(moodentryfile, "r");
     if(!fp){ printf("No mood entries found.\n"); return fpfm(); }
@@ -133,7 +132,7 @@ int facvulstd(Teacher t){                                  // Faculty view vulne
     if(!found_vuln) printf("No vulnerable students found in your section.\n");
 return fpfm();
 }
-int facrecconst(Teacher t){                               // Faculty recommend to consultant
+int facrecconst(Teacher t){
     clrscrn();
     FILE *fp = fopen(moodentryfile, "r");
     if(!fp){ printf("No mood entries found.\n"); return fpfm(); }
@@ -211,7 +210,7 @@ int facrecconst(Teacher t){                               // Faculty recommend t
     }
 return fpfm();
 }
-int facvrecommsta(Teacher t){                            // Faculty view his/her recommendation status
+int facvrecommsta(Teacher t){
     clrscrn();
     FILE *fp = fopen(recommendfile, "r");
     if(!fp){ printf("No recommendations found.\n"); return fpfm(); }
@@ -233,7 +232,7 @@ int facvrecommsta(Teacher t){                            // Faculty view his/her
         printf("%s | %d | %s | %s\n",recs[i].std_id,recs[i].mood_lvl,recs[i].type,recs[i].status);
 return fpfm();
 }
-void teachmenu(Teacher t){                              // Teacher Menu
+void teachmenu(Teacher t){
     int choice;
     while(1){
         clrscrn();

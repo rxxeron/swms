@@ -41,3 +41,21 @@
 1756059362 source:c:\users\hp\downloads\swms\student.c
 	"common.h"
 
+1756788001 source:c:\users\student\swms\admin.c
+	"common.h"
+
+1756789624 c:\users\student\swms\common.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+
+1756788001 source:c:\users\student\swms\consultant.c
+	"common.h"
+
+1756788001 source:c:\users\student\swms\faculty.c
+	"common.h"
+
+1756788001 source:c:\users\student\swms\main.c
+	"common.h"
+

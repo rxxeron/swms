@@ -1,9 +1,6 @@
 #include "common.h"
 
-
-// Admin Function
-
-int login_admin() {             // Admin login
+int login_admin() {
     clrscrn();
     const char admin_user[] = "admin_swms";
     const char admin_pass[] = "swmsewu2025";
@@ -26,7 +23,7 @@ int login_admin() {             // Admin login
         return 0;
     }
 }
-void adminaddfac() {                    // Admin add faculty
+void adminaddfac() {
 
     clrscrn();
     FILE *fp = fopen(teachfile, "a");
@@ -48,7 +45,7 @@ void adminaddfac() {                    // Admin add faculty
     printf("Faculty added successfully!\n");
     paucon();
 }
-void adminaddconst() {                  // Admin add consultant
+void adminaddconst() {
     FILE *fp = fopen(consultfile, "a");
     if (!fp) { printf("Error opening consultant file.\n"); return; }
 
@@ -63,7 +60,7 @@ void adminaddconst() {                  // Admin add consultant
     printf("Consultant added successfully!\n");
     paucon();
 }
-void admin_menu() {                     // Admin menu
+void admin_menu() {
     clrscrn();
     int choice;
     do {

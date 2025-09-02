@@ -1,6 +1,6 @@
 #include "common.h"
 
-int cpfm() {                                             // Consultant post menu function
+int cpfm() {
     int choice;
     while(1) {
         printf("\n1. Back to Consultant Menu\n2. Logout\nChoice: ");
@@ -11,8 +11,7 @@ int cpfm() {                                             // Consultant post menu
     }
 }
 
-// Consultant Function
-int logconst(char id[], Consultant *c){                     // Consultant Login
+int logconst(char id[], Consultant *c){
     clrscrn();
     FILE *file=fopen(consultfile,"r");
     if(!file){ printf("No consultants registered.\n"); return 0; }
@@ -31,7 +30,7 @@ int logconst(char id[], Consultant *c){                     // Consultant Login
     if(!success) printf("Login failed!\n");
     return success;
 }
-int consvrecomm(Consultant c) {                            // Consultant view recommendation
+int consvrecomm(Consultant c) {
     clrscrn();
     FILE *fp = fopen(recommendfile, "r");
     if (!fp) { printf("No recommendations found.\n"); return cpfm(); }
@@ -85,7 +84,7 @@ int consvrecomm(Consultant c) {                            // Consultant view re
     }
 return cpfm();
 }
-int consvsche(Consultant c) {                             // Consultant view schedule
+int consvsche(Consultant c) {
     clrscrn();
     FILE *fp=fopen(apptfile,"r");
     if(!fp){ printf("No appointments.\n"); return cpfm(); }
@@ -107,7 +106,7 @@ int consvsche(Consultant c) {                             // Consultant view sch
     }
 return cpfm();
 }
-int consvreq(Consultant c){                              // Consultant view requests
+int consvreq(Consultant c){
     clrscrn();
     FILE *fp=fopen(apptfile,"r");
     Appointment apps[100];
@@ -149,7 +148,7 @@ int consvreq(Consultant c){                              // Consultant view requ
 
 return cpfm();
 }
-void constmenu(Consultant c){                           // Consultant's Menu
+void constmenu(Consultant c){
     int cont=1;
     while(cont){
         clrscrn();
