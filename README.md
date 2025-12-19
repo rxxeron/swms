@@ -1,7 +1,12 @@
 # Student Wellness Management System (SWMS)
 
+**University:** East West University
+**Department:** Department of CSE
+**Submitted to:** K. M. Safin Kamal (KMSK), Lecturer
 
-A comprehensive C application for managing student wellness, mood tracking, faculty recommendations, and counseling appointments.
+## Project Overview
+
+A C-based management system designed to monitor and support student mental health. It enables daily mood tracking, automated and manual consultation recommendations, and appointment scheduling between students and mental health professionals.
 
 ## Project Structure
 
@@ -19,40 +24,48 @@ The code has been organized into separate files based on functionality:
 ### Features
 
 #### Student Features
-- Registration and login
-- Mood entry with automatic consultation recommendations for low moods
-- View mood history (daily, weekly, monthly, tri-monthly reports)
-- Book appointments with consultants
-- View and respond to recommendations
-- View appointment status
+- **Registration and Login**: Secure access for students.
+- **Daily Mood Tracking**: Input mood scores (1-10) and detailed notes. Scores below 5 trigger automatic consultation recommendations.
+- **Reports**: View mood history (Today, Weekly, Monthly, 3-Month trends).
+- **Appointments**: Book appointments with consultants and view status.
+- **Recommendations**: View and respond to faculty or system recommendations.
 
 #### Faculty Features
-- Login and authentication
-- View average mood of their section
-- Identify vulnerable students (average mood < 5)
-- Recommend students for consultation
-- Track recommendation status
+- **Login**: Secure access for faculty.
+- **Mood Monitoring**: View average mood levels for students in assigned courses/sections.
+- **Vulnerable Student Identification**: Identify students with average mood < 5.
+- **Manual Recommendations**: Recommend students for consultation based on mood trends.
+- **Tracking**: Track the status of recommendations.
 
 #### Consultant Features
-- Login and authentication
-- View pending recommendations
-- Schedule appointments for recommended students
-- View scheduled appointments
-- Accept/reject appointment requests
+- **Login**: Secure access for consultants.
+- **Recommendation Management**: View pending recommendations from faculty and the system.
+- **Appointment Scheduling**: Schedule dates and times for recommended students.
+- **Management**: View scheduled appointments and accept/reject requests.
 
 #### Administrator Features
-- Secure admin login
-- View all registered students, faculty, and consultants
-- Add new faculty members
-- Add new consultants
+- **Secure Login**: Centralized management.
+- **User Management**: View and manage all registered students, faculty, and consultants.
+- **Add Users**: Register new faculty members and consultants.
 
 ### Data Files
 - `students.txt` - Student registration data
 - `teachers.txt` - Faculty registration data
 - `consultants.txt` - Consultant registration data
-- `mood_entries.txt` - Student mood entries
-- `recommendations.txt` - Faculty recommendations
+- `mood_entries.txt` - Student mood entries (Daily logs)
+- `recommendations.txt` - Faculty and system recommendations
 - `appointments.txt` - Appointment data
+
+## Technical Implementation
+
+- **Language:** C
+- **Libraries Used:** `stdio.h`, `stdlib.h`, `string.h`, `time.h` (for real-time date/time handling).
+
+### Key Data Structures
+- **`Student` / `Teacher` / `Consultant`**: Stores ID, Name, Password, and academic metadata.
+- **`MoodEntry`**: Stores student ID, mood score, notes, and date.
+- **`Recommendation`**: Tracks referral ID, student ID, faculty ID, and status.
+- **`Appointment`**: Tracks student-consultant pairings with date, time, and status.
 
 ## Compilation
 
